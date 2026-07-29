@@ -1,0 +1,31 @@
+source:
+  type: "file"  # "file" or "rtsp"
+  file:
+    path: "data/test_footage/sample.mp4"
+    realtime: true   # Pace to target_fps so lag tests are meaningful
+    loop: true       # Loop video when finished
+  rtsp:
+    main_url: "${RTSP_MAIN_URL}"     # Load from environment/secrets
+    sub_url: "${RTSP_SUB_URL}"       # Load from environment/secrets
+    use_substream: false             # Use sub stream if available
+
+capture:
+  target_fps: 30                     # Main loop processing rate (not camera rate)
+  reconnect_initial_delay: 1         # Seconds before first reconnect attempt
+  reconnect_max_delay: 30            # Maximum seconds between reconnect attempts
+  watchdog_timeout: 10               # Seconds before watchdog triggers
+
+display:
+  enabled: true
+  window_name: "AI Garage Stream"
+  show_overlay: true
+
+output:
+  snapshots_dir: "data/snapshots"
+  clips_dir: "data/clips"
+  clip_seconds: 30
+
+logging:
+  level: "INFO"                      # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "logs/ai_garage.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -1,0 +1,39 @@
+# Environment and secrets - NEVER commit
+.env
+.env.local
+*.env
+config/secrets.yaml
+config/secrets.*.yaml
+
+# Data and outputs
+data/
+output/
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
